@@ -1,4 +1,8 @@
-import {createBodyParser, JsonBodyParser, UrlencodedBodyParser} from "../mod.ts";
+import {
+  createBodyParser,
+  JsonBodyParser,
+  UrlencodedBodyParser,
+} from "../mod.ts";
 import {
   assertEquals,
   assertThrowsAsync,
@@ -23,7 +27,7 @@ Deno.test("URL encoded parser can parse", async () => {
       },
     },
   );
-  
+
   assertEquals(
     await bodyParser(createReq(`x`, "application/x-www-form-urlencoded")),
     {
@@ -33,7 +37,7 @@ Deno.test("URL encoded parser can parse", async () => {
       },
     },
   );
-  
+
   // Invalid input?
   assertEquals(
     await bodyParser(createReq(`?`, "application/x-www-form-urlencoded")),

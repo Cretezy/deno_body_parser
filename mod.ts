@@ -33,10 +33,20 @@ export function createBodyParser({ parsers }: ICreateBodyParserOptions) {
   };
 }
 
-export { BodyParser, IBodyParserOptions, TypeCheck } from "./src/bodyParser.ts";
-export { JsonBodyParser, IJsonBodyParserOptions } from "./src/jsonParser.ts";
+// Re-exports
+export {
+  BodyParser,
+  IBodyParserOptions,
+  TypeCheck,
+} from "./src/bodyParser.ts";
+export {
+  JsonBodyParser,
+  IJsonBodyParserOptions,
+} from "./src/jsonParser.ts";
 export {
   UrlencodedBodyParser,
   IUrlencodedBodyParserOptions,
   UrlencodedResult,
 } from "./src/urlencodedParser.ts";
+export { JsonStrictError } from "./src/errors/jsonStrict.ts";
+export { OverLimitError } from "./src/errors/overLimit.ts";

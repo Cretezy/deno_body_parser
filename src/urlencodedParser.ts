@@ -2,13 +2,12 @@ import { BodyParser, IBodyParserOptions } from "./bodyParser.ts";
 import { ServerRequest } from "https://deno.land/std/http/server.ts";
 import { readToTextWithLimit } from "./common.ts";
 
-/// Default type to parse is `application/x-www-form-urlencoded`.
-/// Uses `URLSearchParams` for parsing. Common known as 'form'.
-export interface IUrlencodedBodyParserOptions extends IBodyParserOptions {
-}
+export interface IUrlencodedBodyParserOptions extends IBodyParserOptions {}
 
 export type UrlencodedResult = { [key: string]: string | undefined };
 
+/// Default type to parse is `application/x-www-form-urlencoded`.
+/// Uses `URLSearchParams` for parsing. Common known as 'form'.
 export class UrlencodedBodyParser<UrlencodedResult> extends BodyParser {
   defaultType = "application/x-www-form-urlencoded";
   parserName = "urlencoded";

@@ -3,8 +3,8 @@ import { ServerRequest } from "https://deno.land/std/http/server.ts";
 import { JsonStrictError } from "./errors/jsonStrict.ts";
 import { readToTextWithLimit } from "./common.ts";
 
-/// Default type to parse is `application/json`.
-/// Uses `JSON.parse` for parsing.
+const strictFirstCharacters = ["[", "{"];
+
 export interface IJsonBodyParserOptions extends IBodyParserOptions {
   /// When strict mode is enabled, it will only allow JSON arrays or objects
   /// (not string/number/null). Defaults to `false`
@@ -14,8 +14,8 @@ export interface IJsonBodyParserOptions extends IBodyParserOptions {
   reviver?: (this: any, key: string, value: any) => any;
 }
 
-const strictFirstCharacters = ["[", "{"];
-
+/// Default type to parse is `application/json`.
+/// Uses `JSON.parse` for parsing.
 export class JsonBodyParser extends BodyParser {
   defaultType = "application/json";
   parserName = "json";

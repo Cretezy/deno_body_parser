@@ -32,6 +32,8 @@ assertEquals(results, {
 });
 ```
 
+[View full example](./example.ts)
+
 ## Usage
 
 ### `createBodyParser`

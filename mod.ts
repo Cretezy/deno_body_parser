@@ -10,8 +10,14 @@ export interface IParseResult {
   value: any;
 }
 
-export function createBodyParser({ parsers }: ICreateBodyParserOptions) {
-  return async (req: ServerRequest): Promise<IParseResult | undefined> => {
+export type BodyParserRunner = (
+  req: ServerRequest,
+) => Promise<IParseResult | undefined>;
+
+export function createBodyParser(
+  { parsers }: ICreateBodyParserOptions,
+): BodyParserRunner {
+  return async (req) => {
     const contentType = req.headers.get("Content-Type");
 
     if (!contentType) {

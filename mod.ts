@@ -1,7 +1,5 @@
 import { ServerRequest } from "https://deno.land/std/http/server.ts";
-import { BodyParser, TypeCheck } from "./src/bodyParser.ts";
-import { IJsonBodyParserOptions, JsonBodyParser } from "./src/jsonParser.ts";
-import { IUrlencodedBodyParserOptions } from "./src/urlencodedParser.ts";
+import { BodyParser } from "./src/bodyParser.ts";
 
 export interface ICreateBodyParserOptions {
   parsers: BodyParser[];

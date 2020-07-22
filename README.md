@@ -12,7 +12,7 @@ Generic body parser for Deno's `ServerRequest` body.
 ## Example
 
 ```ts
-import { createBodyParser, JsonBodyParser } from "./mod.ts";
+import { createBodyParser, JsonBodyParser } from "https://deno.land/x/body_parser/mod.ts";
 
 const bodyParser = createBodyParser({
   parsers: [new JsonBodyParser()],
